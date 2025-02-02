@@ -8,7 +8,7 @@ import { todoRouter } from "./routes/todo.js";
 dotenv.config();
 const allowedorigins=[
   "https://todos-listapp.web.app",
-  "http://localhost:3000"
+  // "http://localhost:3000"
 ]
 const app = express();
 const port=process.env.PORT || 5000
