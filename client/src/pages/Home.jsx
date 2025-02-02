@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     if (token) {
       const getTodos = async () => {
-        const response = await fetch("http://localhost:5000/api/read-todos", {
+        const response = await fetch("https://full-stack-todo-application-dchp.onrender.com/api/read-todos", {
           method: "GET",
           headers: {
             authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ const Home = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/create-todo", {
+      const response = await fetch("https://full-stack-todo-application-dchp.onrender.com/api/create-todo", {
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const Home = () => {
     const updatedTodo = prompt("Update your todo");
 
     const response = await fetch(
-      `http://localhost:5000/api/update-todo/${todoId}`,
+      `https://full-stack-todo-application-dchp.onrender.com/${todoId}`,
       {
         method: "PATCH",
         headers: {
@@ -71,7 +71,7 @@ const Home = () => {
 
   const handleDelete = async (todoId) => {
     const response = await fetch(
-      `http://localhost:5000/api/delete-todo/${todoId}`,
+      `https://full-stack-todo-application-dchp.onrender.com/${todoId}`,
       {
         method: "DELETE",
         headers: {

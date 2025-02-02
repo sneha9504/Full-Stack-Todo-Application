@@ -6,11 +6,17 @@ import { authRouter } from "./routes/auth.js";
 import { todoRouter } from "./routes/todo.js";
 
 dotenv.config();
-
+const allowedorigins=[
+  "https://todos-listapp.web.app"
+]
 const app = express();
 const port=process.env.PORT || 5000
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:allowedorigins,
+  methods:["GET","POST","PUT","DELETE"],
+  credentials:true
+}));
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
