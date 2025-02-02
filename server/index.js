@@ -24,7 +24,7 @@ db.on("connected", () => {
 db.on("error", (error) => {
   console.error("Error connecting to MongoDB:", error);
 });
-
+app.get('/',(req,res)=>res.send("API Working"))
 app.use("/api/auth", authRouter);
 app.use("/api", todoRouter);
 
