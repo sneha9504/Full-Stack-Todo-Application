@@ -5,11 +5,14 @@ const Home = () => {
   const [todo, setTodo] = useState("");
   const token = localStorage.getItem("token");
   const [todos, setTodos] = useState([]);
+  // const backendUrl="http://localhost:5000";
+  const backendUrl = "https://full-stack-todo-application-dchp.onrender.com";
+
 
   useEffect(() => {
     if (token) {
       const getTodos = async () => {
-        const response = await fetch("https://full-stack-todo-application-dchp.onrender.com/api/read-todos", {
+        const response = await fetch(`${backendUrl}/api/read-todos`, {
           method: "GET",
           headers: {
             authorization: `Bearer ${token}`,
@@ -28,7 +31,7 @@ const Home = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://full-stack-todo-application-dchp.onrender.com/api/create-todo", {
+      const response = await fetch(`${backendUrl}/api/create-todo`, {
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,
@@ -54,7 +57,7 @@ const Home = () => {
     const updatedTodo = prompt("Update your todo");
 
     const response = await fetch(
-      `https://full-stack-todo-application-dchp.onrender.com/${todoId}`,
+      `${backendUrl}/${todoId}`,
       {
         method: "PATCH",
         headers: {
@@ -71,7 +74,7 @@ const Home = () => {
 
   const handleDelete = async (todoId) => {
     const response = await fetch(
-      `https://full-stack-todo-application-dchp.onrender.com/${todoId}`,
+      `${backendUrl}/${todoId}`,
       {
         method: "DELETE",
         headers: {

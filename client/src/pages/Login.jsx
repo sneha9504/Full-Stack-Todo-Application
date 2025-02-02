@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  // const backendUrl="http://localhost:5000";
+const backendUrl="https://full-stack-todo-application-dchp.onrender.com";
+
 
   const [userData, setUserData] = useState({
     email: '',
@@ -15,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const response = await fetch("https://full-stack-todo-application-dchp.onrender.com/", {
+    const response = await fetch(`${backendUrl}/api/auth/login`, {
       method: 'POST',
       headers: {
 				'Content-Type': 'application/json',
